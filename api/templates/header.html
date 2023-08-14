@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="static/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
+                    {% if not current_user.is_authenticated: %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li><a href="{{ url_for('register_page') }}">Register</a></li>
+                    {% else: %}
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
+                </ul>             
+            </nav>
+            <ul>
+            <div class="attribution">
+                <li><a class="fa fa-github" style="font-size:36px" href="https://github.com/murphymy04" target="_blank"></a></li>
+                <li><a class="fa fa-linkedin" style="font-size:36px" href="https://www.linkedin.com/in/murphymy/" target="_blank"></a></li>
+                <li><a href="https://www.edamam.com/" target="_blank"><img src="static/transparent.png" alt="Attribution" ></a></li>
+            </div>
+        </ul>
+        </header>

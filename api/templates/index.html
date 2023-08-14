@@ -1,0 +1,39 @@
+{% include "header.html" %}
+        <main>
+        <h1 class="title">Pantry Pal</h1>
+        <form action="/search">
+          <div class="search">
+            <input class="search_bar" type="text" placeholder="Enter Ingredients Here" name="ingredients" required>
+            <button class="submit_button" type="submit">Submit</button>
+          </div>
+            <br>
+            <div class="options">
+              <select class="params" name="diet">
+                  <option disabled selected value>Diet Options</option>
+                  {% for choice in diet %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                  {% endfor %}     
+                </select>
+                <select class="params" name="health">
+                  <option disabled selected value>Health Options</option>
+                  {% for choice in health %}
+                      <option value="{{ choice }}">{{ choice }}</option>
+                  {% endfor %}     
+                </select>
+                <select class="params" name="cuisine">
+                  <option disabled selected value>Cuisine Options</option>
+                  {% for choice in cuisine %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                  {% endfor %}     
+                </select>
+                <select class="params" name="meal">
+                  <option disabled selected value>Meal Options</option>
+                  {% for choice in meal %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                  {% endfor %}     
+                </select>
+              </div>
+        </form> 
+      </main>
+    </body>
+</html>

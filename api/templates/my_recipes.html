@@ -1,0 +1,15 @@
+{% include "header.html" %}
+
+<h2>Saved Recipes</h2>
+{% for i in range(names|length) %}
+    <div class="card">
+        <img src="{{ images[i] }}" alt="Recipe Img" style="width:100%">
+        <div class="container">
+          <a href="{{ links[i] }}" target="_blank"><b>{{ names[i] }}</b></a>
+        </div>
+      </div>
+{% endfor %}
+
+
+    </body>
+</html>

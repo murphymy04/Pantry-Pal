@@ -1,0 +1,15 @@
+{% include "header.html" %}
+<h2>Search Results</h2>
+  <div class="cards">
+    {% for i in range(results['hits']|length) %}
+    <div class="card" id="{{ i }}">
+        <img class="food_img" src="{{ results['hits'][i]['recipe']['image'] }}" alt="Recipe Img" style="width:100%;" >
+        <div class="container">
+          <a href="{{ results['hits'][i]['recipe']['url'] }}" target="_blank"><b>{{ results['hits'][i]['recipe']['label'] }}</b></a>
+            <a class="fa fa-plus" href="{{ url_for('save', index=i) }}"></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+    </body>
+</html>
