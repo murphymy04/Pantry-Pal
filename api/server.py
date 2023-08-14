@@ -81,7 +81,7 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 # Connect to Database
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("POSTGRES")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("POSTGRES", "postgresql://default:************@ep-little-bush-52709451.us-east-1.postgres.vercel-storage.com:5432/verceldb")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy()
 db.init_app(app)
