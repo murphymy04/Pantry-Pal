@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for, flash
 import os
 from flask_sqlalchemy import SQLAlchemy
-from recipe_search import RecipeSearch
 from flask_bootstrap import Bootstrap5
 import werkzeug
 from flask_login import LoginManager, login_user, current_user, UserMixin, logout_user, login_required
