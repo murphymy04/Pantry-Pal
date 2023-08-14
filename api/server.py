@@ -4,14 +4,21 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap5
 import werkzeug
 from flask_login import LoginManager, login_user, current_user, UserMixin, logout_user, login_required
-from login_form import LoginForm
 from dotenv import load_dotenv
 import requests
+from flask_wtf import FlaskForm
+from wtforms import SubmitField, PasswordField, EmailField
+from wtforms.validators import DataRequired
 
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.urandom(32)
 Bootstrap5(app)
+
+class LoginForm(FlaskForm):
+    email = EmailField('', validators=[DataRequired()], render_kw={"placeholder": "Email"})
+    password = PasswordField('', render_kw={'placeholder': 'Password'}, validators=[DataRequired()])
+    submit = SubmitField("Login")
 
 class RecipeSearch:
     
