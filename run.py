@@ -1,3 +1,3 @@
 from server import app
 
-app = app()
+app = app
