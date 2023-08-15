@@ -25,8 +25,8 @@ class RecipeSearch:
     
     def __init__(self):
         load_dotenv()
-        self.RECIPE_ID = os.getenv("recipe_id")
-        self.RECIPE_KEY = os.getenv("recipe_key")
+        self.RECIPE_ID = os.environ.get("recipe_id")
+        self.RECIPE_KEY = os.environ.get("recipe_key")
         self.PARAMS = {
             "type": "public",
             "app_id": self.RECIPE_ID,
@@ -81,7 +81,7 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 # Connect to Database
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('postgres')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('postgres')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy()
 db.init_app(app)
@@ -306,7 +306,3 @@ def logout():
 
 with app.app_context():
     db.create_all()
-
-if __name__ == '__main__':
-    app.run(debug=True)
-    
